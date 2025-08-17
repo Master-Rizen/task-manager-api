@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "Task Manager API (Render Live)",
+    "_postman_id": "12345-67890-abcdef",
+    "description": "Postman collection for testing Task Manager API deployed on Render.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://task-manager-api-a47a.onrender.com/health",
+          "protocol": "https",
+          "host": ["task-manager-api-a47a", "onrender", "com"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "https://task-manager-api-a47a.onrender.com/api/auth/signup",
+          "protocol": "https",
+          "host": ["task-manager-api-a47a", "onrender", "com"],
+          "path": ["api", "auth", "signup"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "https://task-manager-api-a47a.onrender.com/api/auth/login",
+          "protocol": "https",
+          "host": ["task-manager-api-a47a", "onrender", "com"],
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "https://task-manager-api-a47a.onrender.com/api/tasks",
+          "protocol": "https",
+          "host": ["task-manager-api-a47a", "onrender", "com"],
+          "path": ["api", "tasks"]
+        }
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish Bootcamp Project\"\n}"
+        },
+        "url": {
+          "raw": "https://task-manager-api-a47a.onrender.com/api/tasks",
+          "protocol": "https",
+          "host": ["task-manager-api-a47a", "onrender", "com"],
+          "path": ["api", "tasks"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

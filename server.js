@@ -21,6 +21,10 @@ app.use("/api/tasks", taskRoutes);
 app.get("/health", (req, res) => {
   res.json({ status: "API is running" });
 });
+app.get("/", (req, res) => {
+  res.send("🚀 Task Manager API is running! Use /api/auth or /api/tasks");
+});
+
 
 // DB + Server Start
 const PORT = process.env.PORT || 5000;
